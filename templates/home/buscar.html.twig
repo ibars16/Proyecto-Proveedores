@@ -1,34 +1,34 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+         {{parent()}}
         <link rel="stylesheet" href="{{ asset('css/crear.css') }}">
         <link rel="stylesheet" href="{{ asset('css/1.css') }}">
         <link rel="stylesheet" media="screen and (min-width: 1200px)" href="{{ asset('css/crear1.css') }}">
 {% endblock %}
 {% block body %}
 
-<div class="a">
+<div class="cuerpo">
  <div class="form">
-                        {% if buscar == 'borrar' %}
-                                <h3 class="mb-3 mt-3">Buscar proveedor para eliminar</h3>
-                        {% else %}
-                                <h3 class="mb-3 mt-3">Buscar proveedor para editar</h3>
-                        {% endif %}
+        {% if buscar == 'borrar' %}
+                <h3 class="mb-3 mt-3">Buscar proveedor para eliminar</h3>
+        {% else %}
+                <h3 class="mb-3 mt-3">Buscar proveedor para editar</h3>
+        {% endif %}
 
-                        {% if encontrado == true %}
-                                <div class="alert alert-succes">
-                                        No existe un proveedor con ese ID
-                                </div>
-                        {% endif %}
-                        {% for message in app.flashes('exito') %}
-                                <div class="alert alert-succes">
-                                        {{message}}
-                                </div>
-                        {% endfor %}
-                        {{form_start(form)}}
-                        {{form_end(form)}}
+        {% if encontrado == true %}
+                <div class="alert alert-succes">
+                        No existe un proveedor con ese ID
+                </div>
+        {% endif %}
+        {% for message in app.flashes('exito') %}
+                        <div class="alert alert-succes">
+                                {{message}}
+                        </div>
+        {% endfor %}
+        {{form_start(form)}}
+        {{form_end(form)}}
         </div>
-        <div class ="b">
+        <div class ="cuerpo-tabla">
                 <table class="default">
                         <h3 class="titulo">Información proveedores</h3>
                         <tr>
@@ -37,6 +37,7 @@
                                 <th>Correo electrónico</th>
                                 <th>Teléfono</th>
                                 <th>Tipo</th>
+                                <th>Activo</th>
                         </tr>
                         {% for proveedor in proveedores %}  
                                 <tr>  
@@ -45,6 +46,11 @@
                                         <td>{{proveedor.correoelectronico}}</td>
                                         <td>{{proveedor.telefono}}</td>
                                         <td>{{proveedor.tipoproveedor}}</td> 
+                                        {% if proveedor.activo == 1 %}
+                                                <td>Si</td>
+                                        {% else %}
+                                                <td>No</td>
+                                        {% endif %}
                                 </tr>
                         {% endfor %}
                 </table>

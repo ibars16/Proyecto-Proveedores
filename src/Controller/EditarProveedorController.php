@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use App\Form\createFormBuilder;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\ChoiceList\ChoiceList;
 
 class EditarProveedorController extends AbstractController
 {
@@ -59,6 +60,8 @@ class EditarProveedorController extends AbstractController
         $proveedor->setCorreoelectronico($data['correoelectronico']);
         $proveedor->setTelefono($data['telefono']);
         $proveedor->settipoproveedor($data['tipoproveedor']);
+        $proveedor->setActivo($data['activo']);
+        $proveedor->actualizar();
     }
 
     public function crear_formulari(Proveedor $proveedor){
@@ -86,8 +89,17 @@ class EditarProveedorController extends AbstractController
                     'Pista' => 'Pista',
                     'Complemento' => 'Complemento',
                 ],
+               
                 
             ])
+        ->add('activo', ChoiceType::class, [
+                'label' => 'Activo: ',
+                'choices'  => [
+                    'Si' => true,
+                    'No' => false
+                    ],
+                    
+                ])
         ->add('Enviar', SubmitType::class)
         ->getForm();
         ;

@@ -69,6 +69,11 @@ class Proveedor
 
     }
 
+   
+    public function actualizar(){
+        $this->modificado= new \DateTime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -131,21 +136,21 @@ class Proveedor
         return $this;
     }
 
-    public function getCreado(): ?DateTime
+    public function getCreado(): ?string
     {
-        return $this->creado;
+        return date_format($this->creado, 'Y-m-d H:i:s');
     }
 
-    public function setCreado(DateTime $creado): self
+    public function setCreado(\DateTimeInterface $creado): self
     {
         $this->creado = $creado;
 
         return $this;
     }
 
-    public function getModificado(): ?DateTime
+    public function getModificado(): ?string
     {
-        return $this->modificado;
+        return date_format($this->modificado, 'Y-m-d H:i:s');
     }
 
     public function setModificado(DateTime $modificado): self

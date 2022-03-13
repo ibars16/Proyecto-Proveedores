@@ -1,10 +1,10 @@
-.a{
+.cuerpo{
     background-color: #E5E3C9;
-    height: auto;
+    height: 100%;
     padding: 25px;
     text-align: center;
 }
-.b{
+.cuerpo-info{
     background-color: #B4CFB0;
     width: 400px;
     margin: auto auto;

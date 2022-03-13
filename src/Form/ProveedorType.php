@@ -39,6 +39,17 @@ class ProveedorType extends AbstractType
                 ],
                 
             ])
+            ->add('telefono',TextType::class , array(
+                'label' => 'Teléfono: ',
+                ))
+            ->add('activo', ChoiceType::class, [
+                'label' => 'Activo: ',
+                'choices'  => [
+                    'Si' => true,
+                    'No' => false
+                    ],
+                    
+                ])
         ->add('Enviar', SubmitType::class)
             ;
     }
