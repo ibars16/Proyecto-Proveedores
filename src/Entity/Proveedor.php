@@ -59,17 +59,16 @@ class Proveedor
     private $tipoproveedor;
 
 
-
-    public function __construct($nombre=null,$correoelectronico=null){
+    public function __construct($nombre=null,$correoelectronico=null,$activo=null){
         $this->nombre=$nombre;
         $this->correoelectronico=$correoelectronico;
-        $this->activo=true;
+        $this->activo=$activo;
         $this->creado= new \DateTime();
         $this->modificado= new \DateTime();
 
     }
 
-   
+   /* Con esta función actualizamos el valor modificado del proveedor */
     public function actualizar(){
         $this->modificado= new \DateTime();
     }

@@ -17,7 +17,7 @@ class BuscarProveedorController extends AbstractController
     /**
     * @Route("/buscar/{tipo}", name="buscar")
     */
-   public function buscar(Request $request,$tipo): Response
+   public function buscar_proveedor(Request $request,$tipo): Response
    {
        $encontrado=false;
        $entityManager = $this->getDoctrine()->getManager();
@@ -29,6 +29,9 @@ class BuscarProveedorController extends AbstractController
        if ($form->isSubmitted() && $form->isValid()) {
            $data = $form->getData();
            $proveedor = $entityManager->getRepository(Proveedor::class)->findOneBy(['id'=>$data['id']]);
+
+           /* Comprueba si existe un proveedor con esa id, y redirige a una url dependiendo el valor de $tipo 
+           que puede ser editar o borrar */
 
            if ($entityManager->getRepository(Proveedor::class)->findOneBy(['id'=>$data['id']]) && $tipo=='editar') {
                return $this->redirectToRoute('editar',['proveedor'=>$data['id']]);
@@ -49,6 +52,7 @@ class BuscarProveedorController extends AbstractController
 }
 
     public function crear_formulario(){
+        /* Esta función crea un formulario para introducir el id del proveedor */
         $form = $this->createFormBuilder()
        ->add('id', TextType::class ,array(
         'label' => 'ID: ',

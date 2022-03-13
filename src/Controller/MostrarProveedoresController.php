@@ -14,6 +14,7 @@ class MostrarProveedoresController extends AbstractController
      */
     public function mostrar(): Response
     {
+         /* Esta función nos sirve para mostrar todos los proveedores */
         $entityManager = $this->getDoctrine()->getManager();
         $proveedor = $entityManager->getRepository(Proveedor::class)->findAll();
        

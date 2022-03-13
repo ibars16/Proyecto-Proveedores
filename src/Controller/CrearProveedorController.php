@@ -12,14 +12,17 @@ class CrearProveedorController extends AbstractController
      /**
      * @Route("/crear", name="crear")
      */
-    public function crear(Request $request): Response
+    public function crear_proveedor(Request $request): Response
     {
+        /* Esta función sirve para generar un formulario para la creación de un proveedor */
         $error = '';
         $proveedor = new Proveedor();
         $form = $this->createForm(ProveedorType::class,$proveedor);
         $form->handleRequest($request);
 
         try {
+            /* Este try catch comprueba que no exista un proveedor en la base de datos con 
+            algún dato igual */
             if ($form->isSubmitted() && $form->isValid()) {
                 $entityManager = $this->getDoctrine()->getManager();
                 $proveedor = $form->getData();

@@ -13,6 +13,7 @@ class EliminarProveedorController extends AbstractController
      * @Route("/borrar/{proveedor}", name="borrar")
      */
     public function eliminar_proveedor($proveedor){
+         /* Este función nos sirve para borrar un proveedor */
         $entityManager = $this->getDoctrine()->getManager();
         $proveedor = $entityManager->getRepository(Proveedor::class)->findOneBy(['id'=>$proveedor]);
         $entityManager->remove($proveedor);

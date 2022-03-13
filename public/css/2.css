@@ -1,0 +1,9 @@
+ul{
+    text-align: center;
+    width: 800px !important;
+    margin: auto auto;
+}
+li{
+    margin-right: 35px !important;
+    padding-left: 0px !important;
+}

@@ -30,6 +30,8 @@ class EditarProveedorController extends AbstractController
             $form->handleRequest($request);
 
             try {
+                 /* Este try catch comprueba que no exista un proveedor en la base de datos con 
+            algún dato igual */
                 if ($form->isSubmitted() && $form->isValid()) {
                     $data = $form->getData();
                     $this->atualizar_informacion($proveedor,$data);
@@ -56,6 +58,7 @@ class EditarProveedorController extends AbstractController
     }
 
     public function atualizar_informacion(Proveedor $proveedor,$data){
+        /* Esta función actualiza la información del proveedor */
         $proveedor->setNombre($data['nombre']);
         $proveedor->setCorreoelectronico($data['correoelectronico']);
         $proveedor->setTelefono($data['telefono']);
@@ -65,6 +68,7 @@ class EditarProveedorController extends AbstractController
     }
 
     public function crear_formulari(Proveedor $proveedor){
+         /* Esta función crea un formulario para editar el proveedor */
         $form = $this->createFormBuilder()
         ->add('nombre',TextType::class , array(
             'label' => 'Nombre: ',
