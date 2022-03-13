@@ -1,0 +1,39 @@
+*{
+    background-color: #E5E3C9;
+}
+div{
+
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+a{
+    margin: auto auto;
+    border: 1px solid #789395;
+    border-radius: 15px;
+    width:  500px;
+    height: 175px;
+    margin-top: 40px;
+    text-decoration: none;
+
+
+}
+a,p{
+
+    background-color: #B4CFB0;
+
+}
+p{
+    font-size: 50px;
+    margin-top: 50px;
+    color: black;
+    letter-spacing: 3px;
+  
+}
+h1{
+    text-align: center;
+    color: black;
+    letter-spacing: 5px;
+    font-size: 50px;
+    margin-top: 25px;
+}

@@ -1,0 +1,21 @@
+{% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/1.css') }}">
+{% endblock %}
+
+{% block navbar %}
+<nav>
+        <ul>
+                <li> <a href="{{ url('crear') }}"><p>Crear Proveedor</p></a></li>
+                <li><a href="{{ url('buscar', {'tipo': 'editar'}) }}"><p>Editar Proveedor</p></a></li>
+                <li><a href="{{ url('buscar', {'tipo': 'borrar'}) }}"><p>Eliminar Proveedor</p></a></li>
+                <li><a href="{{ url('mostrar') }}"><p>Listar Proveedores</p></a></li>
+                <li><a href="{{ url('home') }}"><p>Volver</p></a></li>
+        </ul>
+</nav>        
+
+{% endblock %}
+{% block body %}
+        
+
+{% endblock %}
